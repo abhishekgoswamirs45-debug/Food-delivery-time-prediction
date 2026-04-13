@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Delivery Time Predictor</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+
+    <h1>🍔 Food Delivery Time Prediction</h1>
+
+    <form action="/predict" method="post">
+        
+        <label>Distance (km):</label><br>
+        <input type="number" step="0.1" name="distance" required><br><br>
+
+        <label>Preparation Time (min):</label><br>
+        <input type="number" name="prep_time" required><br><br>
+
+        <label>Traffic Level:</label><br>
+        <select name="traffic">
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>⏱ Estimated Delivery Time: {{ prediction }} minutes</h2>
+    {% endif %}
+
+</body>
+</html>
